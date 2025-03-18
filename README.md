@@ -8,7 +8,8 @@ This project is a news aggregation and categorization system that pulls news fro
 - **Sports**
 - **Entertainment**
 
-The categorized news articles are then consumed by Kafka consumers and stored in either a PostgreSQL or MySQL database for easy retrieval and analysis.
+The categorized news articles are then consumed by Kafka consumers and stored in either a **PostgreSQL** or **MySQL** database for easy retrieval and analysis.
+
 ## Features
 
 - **News Aggregation**: Pulls news from various sources using Google RSS feeds.
@@ -25,7 +26,7 @@ The categorized news articles are then consumed by Kafka consumers and stored in
 
 Before setting up the project, ensure you have the following installed:
 
-- **PostgreSQL or MySQL**: Databases to store the categorized news articles.
+- **PostgreSQL** or **MySQL**: Databases to store the categorized news articles.
 - **Docker Desktop**: For running Kafka and other containerized services locally.
 
 ## Setup Instructions

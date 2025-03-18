@@ -8,8 +8,7 @@ This project is a news aggregation and categorization system that pulls news fro
 - **Sports**
 - **Entertainment**
 
-The categorized news articles are then consumed by a Kafka consumer and stored in a **PostgreSQL** database for easy retrieval and analysis.
-
+The categorized news articles are then consumed by Kafka consumers and stored in either a PostgreSQL or MySQL database for easy retrieval and analysis.
 ## Features
 
 - **News Aggregation**: Pulls news from various sources using Google RSS feeds.
@@ -26,7 +25,7 @@ The categorized news articles are then consumed by a Kafka consumer and stored i
 
 Before setting up the project, ensure you have the following installed:
 
-- **PostgreSQL**: Database to store the categorized news articles.
+- **PostgreSQL or MySQL**: Databases to store the categorized news articles.
 - **Docker Desktop**: For running Kafka and other containerized services locally.
 
 ## Setup Instructions
@@ -46,6 +45,32 @@ Before setting up the project, ensure you have the following installed:
    pip install -r requirements.txt
    ```
    
+4. **Database Configuration**
+Update the .env file with the correct database credentials (either for PostgreSQL or MySQL).
+- Example .env for PostgreSQL:
+  POSTGRES_DB=mydb
+  POSTGRES_USER=your_user
+  POSTGRES_PASSWORD=your_password
+
+- Example .env for MySQL:
+  MYSQL_DB=mydb
+  MYSQL_USER=your_user
+  MYSQL_PASSWORD=your_password
+
+5. **Consumer Scripts**
+There are two Kafka consumers to choose from based on your database preference:
+- PostgreSQL Consumer: Consumes categorized news and stores it in a PostgreSQL database. Run the consumer for PostgreSQL:
+   ```bash
+   python consumer_postgres.py
+   ```
+
+- MySQL Consumer: Consumes categorized news and stores it in a MySQL database. Run the consumer for MySQL:
+   ```bash
+   python consumer_mysql.py
+   ```
+
+Both consumers will listen to Kafka, process the incoming news, categorize it using OpenAI, and store it in your selected database.
+
 ## License
 This project is licensed under the Raza Mehar License. For further details, refer to the LICENSE.md file.
 

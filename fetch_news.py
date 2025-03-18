@@ -1,6 +1,6 @@
 import feedparser
 
-def fetch_news(rss_url="https://news.google.com/rss?topic", limit=1):
+def fetch_news(rss_url="https://news.google.com/rss?topic", limit=5):
     feed = feedparser.parse(rss_url)
 
     if not feed.entries:
